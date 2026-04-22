@@ -1,0 +1,39 @@
+/* 1. Custom background for the whole page */
+body {
+    background-color: #f0f8ff; /* Alice Blue - soft and professional */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Font family requirement */
+    color: #333; /* Font color requirement */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Styling the header div */
+.header-section {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #0047a0; /* South Korean Flag Blue */
+}
+
+/* 3. Styling the main content div */
+.main-content {
+    width: 80%;
+    margin: 20px auto; /* Centering the block */
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 4. Styling the footer div */
+.footer-section {
+    text-align: center;
+    padding: 30px;
+    background-color: #cd2e3a; /* South Korean Flag Red */
+    color: white;
+}
+
+/* Extra style for the links */
+.footer-section a {
+    color: white;
+    font-weight: bold;
+}
