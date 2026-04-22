@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korean Phrase Generator</title>
+    <style>
+        /* Professional Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 { color: #2c3e50; }
+
+        select, button {
+            padding: 10px 15px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover { background-color: #2980b9; }
+
+        .display-area {
+            margin-top: 20px;
+            padding: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .korean { font-size: 2rem; color: #e74c3c; margin-bottom: 10px; }
+        .roman { font-style: italic; color: #7f8c8d; }
+        .english { font-weight: bold; margin-top: 10px; }
+
+        .back-link { margin-top: 30px; }
+        a { color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Korean Phrase Generator</h1>
+    <p>Select a category and generate a phrase!</p>
+
+    <select id="category">
+        <option value="travel">Travel & Directions</option>
+        <option value="food">Food & Dining</option>
+        <option value="slang">Cool Slang</option>
+    </select>
+
+    <br>
+    <button onclick="generatePhrase()">Generate Phrase</button>
+
+    <div class="display-area" id="output">
+        <p>Your phrase will appear here...</p>
+    </div>
+
+    <div class="back-link">
+        <a href="fromScratch.html">← Back to Scratch Page</a>
+    </div>
+</div>
+
+<script>
+    const phrases = {
+        travel: [
+            { kr: "화장실 어디예요?", ro: "Hwajangsil eodiyeyo?", en: "Where is the bathroom?" },
+            { kr: "길을 잃었어요.", ro: "Gireul ireosseoyo.", en: "I am lost." },
+            { kr: "여기 세워주세요.", ro: "Yeogi seowo-juseyo.", en: "Please stop here (for taxis)." }
+        ],
+        food: [
+            { kr: "짬뽕 좋아요!", ro: "Jjamppong joayo!", en: "I like spicy seafood noodles!" },
+            { kr: "맛있게 드세요!", ro: "Masitge deuseyo!", en: "Enjoy your meal!" },
+            { kr: "진짜 맛있어요!", ro: "Jinjja masisseoyo!", en: "It's really delicious!" },
+            { kr: "계산서 주세요.", ro: "Gyesanseo juseyo.", en: "Check, please." }
+        ],
+        slang: [
+            { kr: "대박!", ro: "Daebak!", en: "Awesome! / Jackpot!" },
+            { kr: "꿀잼", ro: "Kkul-jaem", en: "Something very fun (Honey fun)." },
+            { kr: "화이팅!", ro: "Hwaiting!", en: "You can do it! / Fighting!" }
+        ]
+    };
+
+    function generatePhrase() {
+        const cat = document.getElementById('category').value;
+        const list = phrases[cat];
+        const randomPhrase = list[Math.floor(Math.random() * list.length)];
+
+        const output = document.getElementById('output');
+        output.innerHTML = `
+            <div class="korean">${randomPhrase.kr}</div>
+            <div class="roman">${randomPhrase.ro}</div>
+            <div class="english">"${randomPhrase.en}"</div>
+        `;
+    }
+</script>
+
+</body>
+</html>
