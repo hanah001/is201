@@ -1,40 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exploring Korea</title>
-    <link rel="stylesheet" href="css/mystyles.css">
+    <title>Hanah Park | Exploring Korea</title>
+    <link rel="stylesheet" href="css/myStyles.css">
 </head>
+
 <body>
-  <div class="header-section">
-    <a href="#footer">Jump to the Bottom</a>
-  </div>
+    <nav class="header-section" id="mainNav">
+        <div class="nav-container">
+            <a class="navbar-brand" href="index.html">Hanah Park</a>
+            <button class="nav-toggle"
+                onclick="this.closest('#mainNav').querySelector('.nav-menu').classList.toggle('open')">
+                Menu <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-menu" id="navbarResponsive">
+                <ul class="nav-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="ai.html">AI Project</a></li>
+                    <li><a href="#footer">Jump to the Bottom</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <div class="main-content">
-    <h2>My Favorite Places in Korea</h2>
-    <ol>
-        <li>Seoul ~ 서울
-            <ul>
-                <li>The Han River ~ 한강</li>
-                <li>Lotte World ~ 롯데월드</li>
-            </ul>
-        </li>
-        <li>Pohang ~ 포항</li>
-        <li>Gyeongju ~ 경주시</li>
-    </ol>
+    <div class="main-content">
+        <h2>My Favorite Places in Korea</h2>
 
-    <h3>See the Sights</h3>
-    <img src="assets/img/han river.jpeg" alt="The Han River" width="400">
-    <h3>Seoul Neighborhood Tour</h3>
-    <iframe width="560" height="315" src="https://youtu.be/lhQ8efwbiA4?si=qjEx8cdy2uCxtFm_" title="YouTube video player" frameborder="0"></iframe>
-    <div class='tableauPlaceholder' id='viz1776895767366' style='position: relative'><noscript><a href='#'><img alt='South Korea Population Density and Demographics ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SouthKorea-Demographics&#47;SouthKoreaPopulationDensityandDemographics&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SouthKorea-Demographics&#47;SouthKoreaPopulationDensityandDemographics' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SouthKorea-Demographics&#47;SouthKoreaPopulationDensityandDemographics&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1776895767366');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height='1127px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height='1127px';} else { vizElement.style.width='100%';vizElement.style.height='4177px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script> 
-  </div>
+        <ol class="places-list">
+            <li class="place-tile">
+                <strong>Seoul ~ 서울</strong>
+                <ul>
+                    <li>The Han River ~ 한강</li>
+                    <li>Lotte World ~ 롯데월드</li>
+                </ul>
+            </li>
+            <li class="place-tile">
+                <strong>Pohang ~ 포항</strong>
+            </li>
+            <li class="place-tile">
+                <strong>Gyeongju ~ 경주시</strong>
+            </li>
+        </ol>
 
-  <div class="footer-section" id="footer">
-    <p>Thanks for visiting!</p>
-    <p><a href="ai.html">Try the Korean Phrase Generator!</a></p>
-    <a href="index.html">Back to Professional Portfolio</a>
-  </div>
+        <div class="image-grid">
+            <div class="image-item">
+                <h3>Han River Sunset</h3>
+                <img src="assets/img/han river.jpeg" alt="The Han River">
+            </div>
+            <div class="image-item">
+                <h3>Lotte World Theme Park</h3>
+                <img src="assets/img/lotte world.png" alt="Lotte World Theme Park">
+            </div>
+            <div class="image-item">
+                <h3>Pohang, the "City of Steel and Light"</h3>
+                <img src="assets/img/pohang.webp" alt="Pohang Beach">
+            </div>
+            <div class="image-item">
+                <h3>Gyeongju, Korea's "Museum Without Walls"</h3>
+                <img src="assets/img/gyeongju.jpg" alt="Gyeongju">
+            </div>
+        </div>
+
+        <div class="video-tile">
+            <h3>Explore Seoul</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/lhQ8efwbiA4"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+
+        <div class="tableau-wrapper">
+            <div class="tableau-scaler">
+                <div class='tableauPlaceholder' id='viz1776895767366'>
+                    <noscript>...</noscript>
+                    <object class='tableauViz'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='site_root' value='' />
+                        <param name='name' value='SouthKorea-Demographics/SouthKoreaPopulationDensityandDemographics' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                    </object>
+                </div>
+            </div>
+        </div>
+        
+        <script type='text/javascript'>
+            (function () {
+                var NATIVE_W = 1800;
+                var NATIVE_H = 1127;
+
+                var wrapper = document.querySelector('.tableau-wrapper');
+                var scaler = document.querySelector('.tableau-scaler');
+                var placeholder = document.getElementById('viz1776895767366');
+                var vizElement = placeholder.getElementsByTagName('object')[0];
+
+                vizElement.style.width = NATIVE_W + 'px';
+                vizElement.style.height = NATIVE_H + 'px';
+
+                function rescale() {
+                    var remPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
+                    var maxH = window.innerHeight - (4 * remPx);
+
+                    var containerW = wrapper.parentElement.clientWidth;
+                    var scale = containerW / NATIVE_W;
+
+                    if (NATIVE_H * scale > maxH) {
+                        scale = maxH / NATIVE_H;
+                    }
+
+                    if (NATIVE_W * scale > containerW) {
+                        scale = containerW / NATIVE_W;
+                    }
+
+                    scaler.style.transform = 'scale(' + scale + ')';
+                    wrapper.style.width = (NATIVE_W * scale) + 'px';
+                    wrapper.style.height = (NATIVE_H * scale) + 'px';
+                    wrapper.style.margin = '2rem auto';
+                }
+
+                rescale();
+                window.addEventListener('resize', rescale);
+
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            })();
+        </script>
+
+    </div>
+    <!-- end main-content -->
+
+    <div class="footer-section" id="footer">
+        <div class="back-to-top">
+            <a href="#top">Back to the Top</a>
+        </div>
+        <div>
+            <a href="ai.html">Learn Korean Phrases!</a>
+        </div>
+        <div>
+            <a href="index.html">Back to the Portfolio</a>
+        </div>
+    </div>
+
 </body>
+
 </html>

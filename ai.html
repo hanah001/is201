@@ -4,121 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korean Phrase Generator</title>
-    <style>
-        /* Professional Styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-        }
-
-        h1 { color: #2c3e50; }
-
-        select, button {
-            padding: 10px 15px;
-            margin: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 1rem;
-        }
-
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button:hover { background-color: #2980b9; }
-
-        .display-area {
-            margin-top: 20px;
-            padding: 20px;
-            border-top: 2px solid #eee;
-        }
-
-        .korean { font-size: 2rem; color: #e74c3c; margin-bottom: 10px; }
-        .roman { font-style: italic; color: #7f8c8d; }
-        .english { font-weight: bold; margin-top: 10px; }
-
-        .back-link { margin-top: 30px; }
-        a { color: #3498db; text-decoration: none; }
-    </style>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/aistyles.css" rel="stylesheet" />
+    
 </head>
 <body>
 
-<div class="container">
-    <h1>Korean Phrase Generator</h1>
-    <p>Select a category and generate a phrase!</p>
+    <nav class="navbar navbar-expand-lg navbar-light ai-navbar" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Hanah Park</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="fromScratch.html">Custom Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <select id="category">
-        <option value="travel">Travel & Directions</option>
-        <option value="food">Food & Dining</option>
-        <option value="slang">Cool Slang</option>
-    </select>
+    <div class="page-content">
+        <div class="ai-container">
+            <h1>Korean Phrase Generator</h1>
+            <p>Select a category and generate a phrase!</p>
 
-    <br>
-    <button onclick="generatePhrase()">Generate Phrase</button>
+            <select id="category">
+                <option value="travel">Travel & Directions</option>
+                <option value="food">Food & Dining</option>
+                <option value="slang">Cool Slang</option>
+            </select>
 
-    <div class="display-area" id="output">
-        <p>Your phrase will appear here...</p>
+            <br>
+            <button onclick="generatePhrase()">Generate Phrase</button>
+
+            <div class="display-area" id="output">
+                <p>Your phrase will appear here...</p>
+            </div>
+
+            <div class="back-link">
+                <a href="fromScratch.html">← Back to Scratch Page</a>
+            </div>
+        </div>
     </div>
 
-    <div class="back-link">
-        <a href="fromScratch.html">← Back to Scratch Page</a>
-    </div>
-</div>
+    <script>
+        const phrases = {
+            travel: [
+                { kr: "화장실 어디예요?", ro: "Hwajangsil eodiyeyo?", en: "Where is the bathroom?" },
+                { kr: "길을 잃었어요.", ro: "Gireul ireosseoyo.", en: "I am lost." },
+                { kr: "여기 세워주세요.", ro: "Yeogi seowo-juseyo.", en: "Please stop here (for taxis)." },
+                { kr: "이 근처에 맛집 있어요?", ro: "I geuncheoe matjip isseoyo?", en: "Is there a good restaurant nearby?" },
+                { kr: "공항까지 어떻게 가요?", ro: "Gonghangkkaji eotteoke gayo?", en: "How do I get to the airport?" }
+            ],
+            food: [
+                { kr: "짬뽕 좋아요!", ro: "Jjamppong joayo!", en: "I like spicy seafood noodles!" },
+                { kr: "잘 먹겠습니다.", ro: "Jal meokgesseumnida.", en: "I will eat well (said before eating)." },
+                { kr: "맛있게 드세요!", ro: "Masitge deuseyo!", en: "Enjoy your meal!" },
+                { kr: "진짜 맛있어요!", ro: "Jinjja masisseoyo!", en: "It's really delicious!" },
+                { kr: "계산서 주세요.", ro: "Gyesanseo juseyo.", en: "Check, please." }
+            ],
+            slang: [
+                { kr: "대박!", ro: "Daebak!", en: "Awesome! / Jackpot!" },
+                { kr: "꿀잼", ro: "Kkul-jaem", en: "Something very fun (Honey fun)." },
+                { kr: "화이팅!", ro: "Hwaiting!", en: "You can do it! / Fighting!" },
+                { kr: "헐", ro: "Heol", en: "WOW / No way!" },
+                { kr: "짤", ro: "Jjal", en: "Meme (short for '짤방')." }
+            ]
+        };
 
-<script>
-    const phrases = {
-        travel: [
-            { kr: "화장실 어디예요?", ro: "Hwajangsil eodiyeyo?", en: "Where is the bathroom?" },
-            { kr: "길을 잃었어요.", ro: "Gireul ireosseoyo.", en: "I am lost." },
-            { kr: "여기 세워주세요.", ro: "Yeogi seowo-juseyo.", en: "Please stop here (for taxis)." }
-        ],
-        food: [
-            { kr: "짬뽕 좋아요!", ro: "Jjamppong joayo!", en: "I like spicy seafood noodles!" },
-            { kr: "맛있게 드세요!", ro: "Masitge deuseyo!", en: "Enjoy your meal!" },
-            { kr: "진짜 맛있어요!", ro: "Jinjja masisseoyo!", en: "It's really delicious!" },
-            { kr: "계산서 주세요.", ro: "Gyesanseo juseyo.", en: "Check, please." }
-        ],
-        slang: [
-            { kr: "대박!", ro: "Daebak!", en: "Awesome! / Jackpot!" },
-            { kr: "꿀잼", ro: "Kkul-jaem", en: "Something very fun (Honey fun)." },
-            { kr: "화이팅!", ro: "Hwaiting!", en: "You can do it! / Fighting!" }
-        ]
-    };
+        function generatePhrase() {
+            const cat = document.getElementById('category').value;
+            const list = phrases[cat];
+            const randomPhrase = list[Math.floor(Math.random() * list.length)];
 
-    function generatePhrase() {
-        const cat = document.getElementById('category').value;
-        const list = phrases[cat];
-        const randomPhrase = list[Math.floor(Math.random() * list.length)];
-
-        const output = document.getElementById('output');
-        output.innerHTML = `
-            <div class="korean">${randomPhrase.kr}</div>
-            <div class="roman">${randomPhrase.ro}</div>
-            <div class="english">"${randomPhrase.en}"</div>
-        `;
-    }
-</script>
+            const output = document.getElementById('output');
+            output.innerHTML = `
+                <div class="korean">${randomPhrase.kr}</div>
+                <div class="roman">${randomPhrase.ro}</div>
+                <div class="english">"${randomPhrase.en}"</div>
+            `;
+        }
+    </script>
 
 </body>
 </html>
